@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
 import Provider from "@/Provider";
+import StoreProvider from "@/redux/StoreProvider";
+import AppInit from "@/AppInit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,9 +25,19 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 
-        <Provider>
+        <Provider>  {/* YE PROVIDER SESSION KA HII */}
 
-          {children}
+          <StoreProvider> {/* YE PROVIDER REDUX KA HII */}
+
+
+            {/* 💡 YAHA PE IS LIYE CALL KIYE KYUKI KAM PAD SKTA HII KOI BHI PAGE PR IS LIYE  */}
+            <AppInit>  {/* HUM DIRECT GETCURRENT USER KO CALL KR SKTE THE BUT LAYOUT KO USE CLIENT NHI BANA THA TO IS LIYE  DUSRI FILE MEA BANA KR WREP KR DIYE */}
+
+              {children}
+
+            </AppInit>
+
+          </StoreProvider>
 
         </Provider>
 

@@ -47,7 +47,7 @@ const OtpPage = ({otpEmail , otpPassword}) => {
                             });
 
                             if (loginRes?.ok) {
-                                   router.push("/logout");
+                                   router.push("/");
                             } else {
                                    toast.error("Auto login failed");
                             }

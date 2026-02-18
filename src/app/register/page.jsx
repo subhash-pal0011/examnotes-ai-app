@@ -72,7 +72,7 @@ const Page = () => {
                      if (loginRes?.ok) {
                             toast.success("Logged in successfully");
                             reset();
-                            router.push("/logout");
+                            router.push("/");
                      }
 
               } catch (error) {
@@ -303,7 +303,7 @@ const Page = () => {
                                                         </div>
                                                  </motion.form>
 
-                                                 <button onClick={() => signIn("google", { callbackUrl: "/logout" })}
+                                                 <button onClick={() => signIn("google", { callbackUrl: "/" })}
                                                         className="items-center flex justify-center gap-1 cursor-pointer p-2">
                                                         <FcGoogle />
                                                         <span className="text-xs">Continue with Google</span>
