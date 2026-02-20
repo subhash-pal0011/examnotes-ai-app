@@ -32,7 +32,7 @@ const NotesNav = () => {
 
                                    <div
                                           className='flex items-center gap-1 border hover:border-gray-600 transition-all duration-300 p-1 rounded px-4 cursor-pointer shadow shadow-gray-200'>
-                                          <img src="/notes.gif" className='h-6 w-6' />
+                                          <img src="/bookAndNotes.gif" className='h-8 w-8' />
                                           <span className="text-xs font-semibold capitalize line-clamp-1">
                                                  Your Notes
                                           </span>
