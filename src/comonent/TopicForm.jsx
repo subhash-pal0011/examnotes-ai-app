@@ -164,9 +164,9 @@ const TopicForm = () => {
                                    type="submit"
                                    className="mt-2 px-4 py-2 rounded-lg bg-linear-to-r from-green-500 to-emerald-500 text-white text-sm font-medium cursor-pointer transition  shadow-xl text-center items-center flex justify-center"
                             >
-                                   {isSubmitting ?
-                                          <div className="flex items-center">
-                                                 <img src="/Live chatbot.gif" className="h-6 w-6" />
+                                   {!isSubmitting ?
+                                          <div className="flex items-center gap-1">
+                                                 <img src="/roboAi.gif" className="h-6 w-6" />
                                                  <img src="/loder.gif" className="h-6 w-6 " />
                                           </div>
                                           :
@@ -187,7 +187,7 @@ const TopicForm = () => {
                             className="mt-3 p-1 rounded border-green-400 font-semibold border cursor-pointer flex items-center"
                      >
                             {/* 🤖 */}
-                            <img src="/Live chatbot.gif" className="h-10 w-10" />
+                            <img src="/roboAi.gif" className="h-10 w-10" />
                             <span className="text-xs capitalize line-clamp-1 bg-linear-to-r from-gray-800 via-emerald-400 to-green-500 bg-clip-text text-transparent">
                                    {loading ? <img src="/loader-2.gif" className="h-10 w-10" /> : "Would you like some suggestions?"}
                             </span>
