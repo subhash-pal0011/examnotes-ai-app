@@ -28,7 +28,7 @@ export async function POST(req) {
                      className,
                      examType,
                      revisionMode,
-                     includeDaigaram,
+                     includeDiagram,
                      includeChart,
               } = await req.json();
 
@@ -65,7 +65,7 @@ export async function POST(req) {
                      className,
                      examType,
                      revisionMode,
-                     includeDaigaram,
+                     includeDiagram,
                      includeChart,
               });
 
@@ -86,7 +86,7 @@ export async function POST(req) {
                      className,
                      examType,
                      revisionMode,
-                     includeDiagram : includeDaigaram,
+                     includeDiagram : includeDiagram,
                      includeChart,
                      content: generatedNotes,
               });
