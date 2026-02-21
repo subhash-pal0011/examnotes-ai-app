@@ -1,5 +1,3 @@
-
-
 import OpenAI from "openai";
 
 const client = new OpenAI({
@@ -7,11 +5,10 @@ const client = new OpenAI({
        baseURL: "https://openrouter.ai/api/v1",
 });
 
-export async function POST() {
+export async function POST(req) {
        try {
-              const stream = await client.chat.completions.create({
-                     model: "openai/gpt-5-nano",
-                     stream: true,
+              const completion = await client.chat.completions.create({
+                     model: "gpt-4o-mini",
                      messages: [
                             {
                                    role: "system",
@@ -26,47 +23,38 @@ export async function POST() {
                                    No extra text.
                                    Format:
                                    {
-                                    "topic": "...",
-                                    "className": "...",
-                                    "examType": "..."
-                                   }
-
-                            `
+                                          "topic": "...",
+                                          "className": "...",
+                                          "examType": "..."
+                                   }`
                             },
                             {
                                    role: "user",
                                    content: "Generate form suggestions"
                             }
-                     ]
-
+                     ],
+                     max_tokens: 200,
+                     temperature: 0.7,
               });
 
-              const encoder = new TextEncoder();
+              let raw = completion.choices[0]?.message?.content || "";
+              raw = raw.trim();
+              const match = raw.match(/\{[\s\S]*\}/);
+              if (!match) {
+                     return new Response(
+                            JSON.stringify({ error: "AI did not return valid JSON", raw }),
+                            { status: 500 }
+                     );
+              }
 
-              const readableStream = new ReadableStream({
-                     async start(controller) {
-                            for await (const chunk of stream) {
-                                   const content = chunk.choices[0]?.delta?.content;
-                                   if (content) {
-                                          controller.enqueue(encoder.encode(content));
-                                   }
-                            }
-                            controller.close();
-                     },
+              const data = JSON.parse(match[0]);
+
+              return new Response(JSON.stringify(data), {
+                     headers: { "Content-Type": "application/json" },
               });
 
-              return new Response(readableStream, {
-                     headers: {
-                            "Content-Type": "text/plain; charset=utf-8",
-                     },
-              });
        } catch (error) {
-              return new Response(
-                     JSON.stringify({
-                            error: "Streaming failed",
-                            details: error.message,
-                     }),
-                     { status: 500 }
-              );
+              console.error("AI suggestion error:", error);
+              return new Response(JSON.stringify({ error: error.message }), { status: 500 });
        }
 }
