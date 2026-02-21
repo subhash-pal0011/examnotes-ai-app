@@ -70,15 +70,17 @@ export async function POST(req) {
               });
 
               const completion = await client.chat.completions.create({
-                     model: "openai/gpt-5-nano",
+                     model: "gpt-4o-mini",
                      messages: [
                             { role: "system", content: "You generate structured study notes." },
                             { role: "user", content: prompt },
                      ],
+                     max_tokens: 4500, 
+                     temperature: 0.7,
               });
 
               const generatedNotes = completion.choices[0]?.message?.content || "No notes generated";
-                     
+
 
               const savedNotes = await Notes.create({
                      user: user._id,
@@ -86,7 +88,7 @@ export async function POST(req) {
                      className,
                      examType,
                      revisionMode,
-                     includeDiagram : includeDiagram,
+                     includeDiagram: includeDiagram,
                      includeChart,
                      content: generatedNotes,
               });
