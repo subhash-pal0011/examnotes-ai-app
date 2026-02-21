@@ -18,7 +18,7 @@ export async function POST(req) {
               }
 
               const completion = await client.chat.completions.create({
-                     model: "openai/gpt-5-nano",
+                     model: "gpt-4o-mini",
                      messages: [
                             {
                                    role: "user",
