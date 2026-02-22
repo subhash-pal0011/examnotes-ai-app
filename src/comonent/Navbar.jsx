@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from "motion/react";
 import { useSelector } from 'react-redux';
 import { signOut } from 'next-auth/react';
+import Link from 'next/link';
 
 const Navbar = () => {
 
@@ -109,12 +110,22 @@ const Navbar = () => {
                                                                />
 
                                                                {/* Content */}
-                                                               <div className="space-y-2 items-center text-center mt-2 p-2">
-                                                                      <h3 className="bg-green-200 text-sm font-semibold p-1 text-green-500">History</h3>
+                                                               <div className="space-y-2 text-center mt-2 p-2 w-full">
+
+                                                                      <Link
+                                                                             href="/history"
+                                                                             className="block w-full bg-green-200 text-sm font-semibold p-1 text-green-600 rounded hover:bg-green-300 transition"
+                                                                      >
+                                                                             History
+                                                                      </Link>
 
                                                                       <button
                                                                              onClick={() => signOut({ redirect: true, callbackUrl: "/register" })}
-                                                                             className="bg-red-200 text-sm font-semibold p-1 cursor-pointer text-red-500 w-full">Log-Out</button>
+                                                                             className="w-full bg-red-200 text-sm font-semibold p-1 cursor-pointer text-red-600 rounded hover:bg-red-300 transition"
+                                                                      >
+                                                                             Log-Out
+                                                                      </button>
+
                                                                </div>
 
 
