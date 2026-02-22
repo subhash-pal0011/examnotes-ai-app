@@ -186,6 +186,7 @@ const TopicForm = () => {
                      </div>
 
                      <ResultNotes result={notesResult} />
+                     
               </div>
        );
 };
