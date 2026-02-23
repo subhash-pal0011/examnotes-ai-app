@@ -35,7 +35,7 @@ const HistoryNav = ({ onSelectNote }) => {
                             </div>
 
                             {
-                                   notes.length > 0 ? (
+                                   notes?.length > 0 ? (
                                           notes.map((note) => (
                                                  <div onClick={() => onSelectNote(note._id)}
                                                         key={note._id} className="p-2 px-3 border-b cursor-pointer ">
@@ -58,7 +58,6 @@ const HistoryNav = ({ onSelectNote }) => {
 
 
        return (
-              // sticky  z-50 p-5
               <div className='w-full shadow-md bg-white text-gray-700 rounded'>
                      <div className='md:px-5 md:p-1.5 p-1 flex justify-between items-center md:flex-row flex-col'>
                             <div onClick={() => router.push("/")}
