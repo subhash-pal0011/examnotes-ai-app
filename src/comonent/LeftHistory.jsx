@@ -17,7 +17,6 @@ const LeftHistory = ({ onSelectNote }) => {
                             setLoding(true)
                             const res = await axios.get("/api/history/gatnotes")
                             if (res.data.success) {
-                                   console.log(res.data.data)
                                    setData(res.data.data)
                                    dispatch(setGetNotes(res.data.data))
                             }
