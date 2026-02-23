@@ -122,7 +122,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
        session: {
               strategy: "jwt",
-              maxAge: 10 * 24 * 60 * 60, // ✅ 10 days in seconds , 10 DIN MEA EXPIRE
+              maxAge: 10 * 24 * 60 * 60, // 10 days in seconds , 10 DIN MEA EXPIRE
        },
 
        //NextAuth ka security password jo session/JWT ko safe rakhta hai.
