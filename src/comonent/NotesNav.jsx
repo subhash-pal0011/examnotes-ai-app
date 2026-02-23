@@ -2,9 +2,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 const NotesNav = () => {
-       
+       const router = useRouter()
        const user = useSelector((state) => state.user.userData);
 
        return (
@@ -16,7 +17,7 @@ const NotesNav = () => {
                             </div>
 
                             <div className='flex items-center gap-5'>
-                                   <div
+                                   <div onClick={()=>router.push("/credits")}
                                           className='flex items-center gap-1 border hover:border-gray-600 transition-all duration-300 p-1 rounded px-4 cursor-pointer shadow shadow-gray-200'>
                                           <img src="/gift.gif" className='h-6 w-6' />
                                           <span className="text-xs font-semibold">
