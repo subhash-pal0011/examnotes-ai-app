@@ -65,14 +65,6 @@ const Navbar = () => {
                                                                       </p>
                                                                </div>
 
-
-
-
-
-
-
-
-
                                                                {/* Action Button */}
                                                                <button
                                                                       onClick={() => router.push("/credits")}
