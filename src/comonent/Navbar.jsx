@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from "motion/react";
 import { useSelector } from 'react-redux';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
-
+       const router = useRouter()
        const [showBox, setShowBox] = useState(false)
        const [showDiv, setShowDiv] = useState(false)
        const user = useSelector((state) => state.user.userData);
@@ -64,10 +65,18 @@ const Navbar = () => {
                                                                       </p>
                                                                </div>
 
+
+
+
+
+
+
+
+
                                                                {/* Action Button */}
                                                                <button
-                                                                      onClick={() => setShowBox(false)}
-                                                                      className="mt-4 w-full bg-green-600 text-white text-sm py-2 rounded-lg hover:bg-green-700"
+                                                                      onClick={() => router.push("/credits")}
+                                                                      className="mt-4 w-full bg-green-600 text-white text-sm py-2 rounded-lg hover:bg-green-700 cursor-pointer"
                                                                >
                                                                       Continue
                                                                </button>
