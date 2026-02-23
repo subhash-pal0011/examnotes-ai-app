@@ -11,7 +11,7 @@ const RightHistory = ({ notesId }) => {
       try {
         const res = await axios.get(`/api/history/${notesId}`);
         if (res.data.success) {
-          setNoteDetail(res.data.data); // assume API returns note detail
+          setNoteDetail(res.data.data); 
         }
       } catch (error) {
         console.log("getNotes error:", error);
