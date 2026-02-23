@@ -70,7 +70,7 @@ const Page = () => {
             </div>
 
             <button onClick={() => handlePayment(100)}
-              className={`w-full ${selectedPlan === "100" ? "bg-blue-500" : "bg-black"} transition-all duration-300 text-white py-2 rounded-lg hover:bg-gray-800  mb-4`}>
+              className={`w-full cursor-pointer ${selectedPlan === "100" ? "bg-blue-500" : "bg-black"} transition-all duration-300 text-white py-2 rounded-lg hover:bg-gray-800  mb-4`}>
               Buy Now
             </button>
 
@@ -108,7 +108,8 @@ const Page = () => {
               <span>200</span>
             </div>
 
-            <button className={`w-full ${selectedPlan === "200" ? "bg-blue-500" : "bg-black"} transition-all duration-300 text-white py-2 rounded-lg hover:bg-gray-800  mb-4`}>
+            <button onClick={() => handlePayment(200)}
+              className={`w-full cursor-pointer ${selectedPlan === "200" ? "bg-blue-500" : "bg-black"} transition-all duration-300 text-white py-2 rounded-lg hover:bg-gray-800  mb-4`}>
               Buy Now
             </button>
 
@@ -147,7 +148,8 @@ const Page = () => {
               <span>500</span>
             </div>
 
-            <button className={`w-full ${selectedPlan === "500" ? "bg-blue-500" : "bg-black"} transition-all duration-300 text-white py-2 rounded-lg hover:bg-gray-800  mb-4`}>
+            <button onClick={() => handlePayment(500)}
+              className={`w-full cursor-pointer ${selectedPlan === "500" ? "bg-blue-500" : "bg-black"} transition-all duration-300 text-white py-2 rounded-lg hover:bg-gray-800  mb-4`}>
               Buy Now
             </button>
 
